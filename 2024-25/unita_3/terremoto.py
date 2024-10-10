@@ -13,3 +13,15 @@ else:
                 print("Molti edifici sono distrutti")
             else:
                 print("Tutto distrutto")
+
+# alternativa
+if richter < 4.5:
+    print("nessun danno")
+elif richter <= 5.99:
+    print("danni ad edifici non adeguati")
+elif richter <= 6.99:
+    print("Molti edifici danneggiati")
+elif richter <= 7.99:
+    print("Molti edifici sono distrutti")
+else:
+    print("Tutto distrutto")
