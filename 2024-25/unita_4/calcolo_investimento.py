@@ -16,6 +16,18 @@ while anno < 10:
 print(f"Dopo 10 anni il deposito è {deposito_corrente:.2f}")
 
 
+
+# inizializzazione delle variabili
+deposito_corrente = deposito_iniziale
+
+# ciclo equivalente con il for
+for anno in range(10):
+    interesse_maturato = deposito_corrente * tasso_interesse
+    deposito_corrente = deposito_corrente + interesse_maturato    
+
+
+ 
+
 # inizializzazione delle variabili
 deposito_corrente = deposito_iniziale
 anno = 0
