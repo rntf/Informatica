@@ -21,6 +21,7 @@ deposito_corrente = deposito_iniziale
 anno = 0
 
 # ciclo while basato su un evento
+# Quando raddoppia il deposito iniziale?
 while deposito_corrente < 2 * deposito_iniziale:
     interesse_maturato = deposito_corrente * tasso_interesse
     deposito_corrente = deposito_corrente + interesse_maturato
