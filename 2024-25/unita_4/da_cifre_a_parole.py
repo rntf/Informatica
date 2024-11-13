@@ -4,7 +4,10 @@ def main():
     print(valore_come_stringa)
 
 def converti_in_parole(valore_numerico):
-    (stringa1, valore_numerico)= converti_centinaia(valore_numerico)
+    if valore_numerico >= 100:
+        (stringa1, valore_numerico)= converti_centinaia(valore_numerico)
+    else:
+        stringa1 = ""
     stringa2 = converti_decine_e_unita(valore_numerico)
     return stringa1 + stringa2
 
