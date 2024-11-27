@@ -10,9 +10,6 @@ def main():
         swap(values, i, j)
         i = i + 1
         j = j + 1
-    
-    # Il ciclo è equivalente a:
-    # values = values[j:len(values)] + values[0:j]
 
     print(values)
 
