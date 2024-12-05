@@ -35,7 +35,7 @@ def read_file(filename):
     :param filename: il nome del file che contiene i dati
     :return: una lista contenente i dati acquisiti dal file
     """
-    infile = open(filename, "r")
+    infile = open(filename, "r")    # Può sollevare eccezioni
     try:
         return read_data(infile)
     finally:

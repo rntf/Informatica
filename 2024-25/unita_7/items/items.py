@@ -20,7 +20,7 @@ output_file = open(output_file_name, "w")
 total = 0.0
 
 for line in input_file:
-    # Solo se nella riga c’è un carattere "due punti", la elabora.
+    # Solo se nella riga c'è un carattere "due punti", la elabora.
     if ":" in line:
         # Suddivide il record in corrispondenza del "due punti"
         parts = line.split(":")
@@ -35,7 +35,7 @@ for line in input_file:
         # Scrive nel file.
         output_file.write(f'{item:<20s}{price:10.2f}\n')
 
-# Scrive l’importo totale.
+# Scrive l'importo totale.
 output_file.write(f'{"Total:":<20s}{total:10.2f}')
 
 # Chiude i file.
