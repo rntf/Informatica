@@ -19,11 +19,20 @@ def main():
         print(f"Il file contiene {len(insieme_parole)} parole univoche")
         print(f"tempo di esecuzione: {fine - inizio}")
         input_file.close()
+
+        input_file = open(file_name, "r", encoding="utf-8")
+        dizionario_parole = estrai_parole3(input_file)
+        # stampo tutte le parole con la relativa occorrenza
+        for (chiave, valore) in sorted(dizionario_parole.items()):
+            print(f"{chiave}: {valore}")
+
+        input_file.close()
     except OSError:
         print(f"Il file {file_name} non esiste")
 
 
 def estrai_parole(input_file):
+    # usa un insieme
     insieme_parole = set()
     for riga in input_file:
         parole = riga.split()
@@ -35,6 +44,7 @@ def estrai_parole(input_file):
 
 
 def estrai_parole2(input_file):
+    # usa una lista
     # molto più lenta della funzione con l'insieme
     lista_parole = []
     for riga in input_file:
@@ -45,6 +55,20 @@ def estrai_parole2(input_file):
                 lista_parole.append(parola_pulita)
     
     return lista_parole
+
+def estrai_parole3(input_file):
+    # usa un dizionario
+    dizionario_parole = {}
+    for riga in input_file:
+        parole = riga.split()
+        for parola in parole:
+            parola_pulita = pulisci_parola(parola)
+            if parola_pulita in dizionario_parole:
+                dizionario_parole[parola_pulita] = dizionario_parole[parola_pulita] + 1
+            else:
+                dizionario_parole[parola_pulita] = 1
+
+    return dizionario_parole
 
 
 def pulisci_parola(parola):
