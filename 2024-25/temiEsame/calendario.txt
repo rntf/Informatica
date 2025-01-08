@@ -1,0 +1,21 @@
+
+Gruppo verde
+Giornata: 1
+Djokovic vs Rune
+Medvedev vs Tsitsipas
+Giornata: 2
+Djokovic vs Medvedev
+Tsitsipas vs Rune
+Giornata: 3
+Djokovic vs Tsitsipas
+Rune vs Medvedev
+Gruppo rosso
+Giornata: 1
+Alcaraz vs Zverev
+Sinner vs Rublev
+Giornata: 2
+Alcaraz vs Sinner
+Rublev vs Zverev
+Giornata: 3
+Alcaraz vs Rublev
+Zverev vs Sinner
