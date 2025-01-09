@@ -6,7 +6,14 @@
 # - stampare a video l'elenco aggiornato di tutte le prenotazioni
 
 def main():
-    automobili = leggi_file("auto.csv")
+    lista_auto = leggi_file("auto.csv")
+    (categoria, giorni) = chiedi_auto()
+    lista_auto_prenotabili = trova_auto(categoria, giorni, lista_auto)
+    if len(lista_auto_prenotabili) == 0:
+        print("Auto non disponibile")
+    else:
+        scelta = scegli_auto(lista_auto, lista_auto_prenotabili)
+        aggiorna_struttura_dati(lista_auto, scelta, giorni)
 
 
 def leggi_file(nomefile):
@@ -30,5 +37,48 @@ def leggi_file(nomefile):
         print(f"Il file {nomefile} non esiste")
 
     return lista
+
+
+def chiedi_auto():
+    risposta = input("Scegli categoria e giorni: ")
+    campi = risposta.split()
+    return (campi[0], campi[1:])
+
+def trova_auto(categoria, giorni, lista_auto):
+    auto_prenotabili = []
+
+    for (indice, auto) in enumerate(lista_auto):
+        valido = True
+        if auto["categoria"] == categoria:
+            for giorno in giorni:
+                if auto["disponibilita"][int(giorno) - 1] == "A":
+                    valido = False
+        
+            if valido:
+                auto_prenotabili.append(indice)
+    
+    return auto_prenotabili
+
+
+def scegli_auto(lista_auto, lista_auto_prenotabili):
+    print("Le macchine disponbili sono:")
+    opzione = 1
+    for indice in lista_auto_prenotabili:
+        print(f'{opzione}) {lista_auto[indice]["marca"]} {lista_auto[indice]["modello"]} {lista_auto[indice]["colore"]}')
+        opzione += 1
+
+    scelta = input("Quale vuoi prenotare? ")
+    return lista_auto_prenotabili[int(scelta) - 1]
+
+
+def aggiorna_struttura_dati(lista_auto, scelta, giorni):
+    for giorno in giorni:
+        lista_auto[scelta]["disponibilita"][int(giorno) - 1] = "A"
+
+    for auto in lista_auto:
+        print(f"\n{auto['categoria']} {auto['marca']} {auto['modello']} {auto['colore']}", end="")
+        for giorno in auto['disponibilita']:
+            print(" ", giorno, end="")
+        
 
 main()
